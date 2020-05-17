@@ -25,3 +25,5 @@ Either respect the contract, or don't override equals in a meaningful way.
 * Constructor is either private or package-private
 * Enum implicitely extends java.lang.Enum class. But enum may implement an interface. 
 * Can also have abstract method overriden for each (enum constant) value. (`git checkout AbsMethInEnum`)
+* `switch (season) { case WINTER: ...` OK 
+* `switch (season) { case Season.WINTER: ...` DOESNT COMPILE, `switch (season) { case 0: ...` DOESNT COMPILE EITHER
