@@ -39,3 +39,7 @@ Either respect the contract, or don't override equals in a meaningful way.
 * Every statement in a case block must belong to a case or to the default label.
 * No two case labels with same value
 * Can you use var inside case labels ?? empty switch block is valid ?
+
+#### Operator precedence
+
+* Though `b2 = b1 != b2` is valid, `b2 != b1 = !b2` doesn't compile (the = operator has least precedence of all operators)
