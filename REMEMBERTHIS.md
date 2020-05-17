@@ -7,6 +7,7 @@
 #### String, StringBuilder, CharSequence etc.
 
 * String does override equals(), StringBuilder does not and inherits that of Object.
+* A method of StringBuilder : public StringBuilder delete(int start, int end)
 
 #### `equals()`
 
@@ -27,3 +28,8 @@ Either respect the contract, or don't override equals in a meaningful way.
 * Can also have abstract method overriden for each (enum constant) value. (`git checkout AbsMethInEnum`)
 * `switch (season) { case WINTER: ...` OK 
 * `switch (season) { case Season.WINTER: ...` DOESNT COMPILE, `switch (season) { case 0: ...` DOESNT COMPILE EITHER
+
+#### Constructors
+
+* Unlike methods, a constructor cannot be abstract, static, final, native, or synchronized.
+* If there are final fields uninitialized, they must be initialized in constructor, and can't be used before (-- unlike non final unitialized fields, right?)
