@@ -24,6 +24,6 @@ public class Hippo2 {
 
     public static void main(String[] args) {
         Hippo2 h1 = new Hippo2("Harry", 3100);
-        System.out.println(h1); // Harry
+        System.out.println(h1); // Hippo2[name=Harry,weight=3100.0]
     }
 }
