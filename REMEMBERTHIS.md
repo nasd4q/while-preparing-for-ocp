@@ -15,3 +15,8 @@
 
 Careful : symmetry and transitivity requirements prevent from subclassing and overriding equals so that equals reflects a finer-grained relationship :
 Either respect the contract, or don't override equals in a meaningful way.
+
+#### Enums
+
+* `if ( Season.SUMMER == 2) {}` // DOES NOT COMPILE
+* `public enum ExtendedSeason extends Season { }` // DOES NOT COMPILE
