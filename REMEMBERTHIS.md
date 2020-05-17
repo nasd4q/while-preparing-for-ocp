@@ -43,3 +43,9 @@ Either respect the contract, or don't override equals in a meaningful way.
 #### Operator precedence
 
 * Though `b2 = b1 != b2` is valid, `b2 != b1 = !b2` doesn't compile (the = operator has least precedence of all operators)
+
+#### Inheritance and overriding
+* Only instance methods may be overriden. The rest (static methods, sttc and inst fields) may only ne hidden.
+* Given Interface/Implementer situation : `Movable m = new Donkey(); System.out.println(m.location)` : 
+* 1. It compiles only if Movable has a (public, static and final) location field
+* 2. It will only show the content of Movable's location field content, even if hidden
