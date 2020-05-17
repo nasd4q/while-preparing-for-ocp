@@ -33,3 +33,9 @@ Either respect the contract, or don't override equals in a meaningful way.
 
 * Unlike methods, a constructor cannot be abstract, static, final, native, or synchronized.
 * If there are final fields uninitialized, they must be initialized in constructor, and can't be used before (-- unlike non final unitialized fields, right?)
+
+#### `switch`
+
+* Every statement in a case block must belong to a case or to the default label.
+* No two case labels with same value
+* Can you use var inside case labels ?? empty switch block is valid ?
