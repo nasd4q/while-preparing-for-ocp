@@ -7,7 +7,7 @@
 #### String, StringBuilder, CharSequence etc.
 
 * String does override equals(), StringBuilder does not and inherits that of Object.
-* A method of StringBuilder : public StringBuilder delete(int start, int end)
+* A method of StringBuilder : `public StringBuilder delete(int start, int end)`
 * StringBuilder defines : `public void ensureCapacity(int minimumCapacity)` ( If the current capacity is less than the argument, the new capacity is the larger of: the minimumCapacity argument - or - twice the old capacity, plus 2. If the minimumCapacity argument is nonpositive, this method takes no action and simply returns.)
 * StringBuilder defines : `public StringBuilder(int capacity)` Constructs a string builder with no characters in it and an initial capacity specified by the capacity argument.
 
