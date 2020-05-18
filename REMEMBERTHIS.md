@@ -26,10 +26,9 @@ Either respect the contract, or don't override equals in a meaningful way.
 * While `Season s1 = Season.valueOf("SUMMER");` compiles, `Season s2 = Season.valueOf("summer");` throws a java.lang.IllegalArgumentException
 * Every enum constant is always implicitly public static final.
 * Constructor is either private or package-private
-* Enum implicitely extends java.lang.Enum class. But enum may implement an interface. 
+* Enum implicitely extends java.lang.Enum class. And implicitly implements both Serializable and Comparable interface. But enum might implement other interfaces. 
 * Can also have abstract method overriden for each (enum constant) value. (`git checkout AbsMethInEnum`)
-* `switch (season) { case WINTER: ...` OK 
-* `switch (season) { case Season.WINTER: ...` DOESNT COMPILE, `switch (season) { case 0: ...` DOESNT COMPILE EITHER
+* Nested enum types are implicitly static. 
 
 #### Constructors and initialization
 
@@ -45,6 +44,9 @@ Either respect the contract, or don't override equals in a meaningful way.
 * Every statement in a case block must belong to a case or to the default label.
 * No two case labels with same value (even if one is defined with a final var and other with constant expr)
 * Can you use vars inside case labels ?? - Yes, if compile-time constants (ie final vars). Empty switch block is valid ? - Yes
+* `switch (season) { case WINTER: ...` OK 
+* `switch (season) { case Season.WINTER: ...` DOESNT COMPILE, `switch (season) { case 0: ...` DOESNT COMPILE EITHER
+
 
 #### Operator precedence
 
@@ -104,7 +106,7 @@ Either respect the contract, or don't override equals in a meaningful way.
 #### `import` 
 
 * Assuming `System.out.println(logger.getMessages().isEmpty());` is referencing logger of imported public class Logger, which defines public method `ArrayList getMessages()`, _no need to import ArrayList, even if using method ArrayList::isEmpty_, importing Logger suffices.
-
+* Wildcards do not look at subdirectories.
 
 #### miscellaneous
 
@@ -120,5 +122,6 @@ Here is what JLS says on this:
 
 #### Nested class
 
-* Member inner class cannot define static fields or methods.
-* Local inner classes cannot be nor declare anything static, have no access to local vars, except for those vars which are final or effectively final.
+* Member, local and anonymous inner classes cannot be static ("Member" !) nor define static fields or methods.
+* Local inner classes have no access to local vars, except for those vars which are final or effectively final.
+* Static nested classes cannot access the enclosing class instance (ie _non static_) variables.
