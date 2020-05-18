@@ -98,6 +98,7 @@ Either respect the contract, or don't override equals in a meaningful way.
 * From Java official tutorial : If a client (ie the one who calls the method) can reasonably be expected to recover from an exception, make it a checked exception. If a client cannot do anything to recover from the exception, make it an unchecked exception. 
 * Errors are never thrown by the programmer explicitly. They are thrown by the JVM automatically upon encountering serious issues (ex : OutOfMemoryError or StackOverflowError). They do not necessarily indicate a programming bug.
 * RuntimeExceptions such as NullPointerException, IndexOutOfBoundsException indicate that there is a coding error in the program. Ideally, instead of catching the exception, code should be fixed.
+* A NullPointerException will be thrown if the expression given to the throw statement results in a null pointer.
 
 
 #### `import` 
@@ -109,3 +110,14 @@ Either respect the contract, or don't override equals in a meaningful way.
 
 * You can have a method and a field with the same name in a class.
 * Considering `var i[ ] = new int[2] {1, 2} ;` : 1.Not compiling because var is not allowed as an element type of an array. 2. Not compiling because if you give the elements explicitely, you can't specify the size at the same time.
+* The statement `iA[i] = i = 30 ;` will be processed as follows: `iA[i] = i = 30;` => `iA[0] = i = 30 ;`  =>  `i = 30; iA[0] = i ;` =>  ` iA[0] = 30 ;`
+
+Here is what JLS says on this:
+1 Evaluate Left-Hand Operand First  
+2 Evaluate Operands before Operation  
+3 Evaluation Respects Parentheses and Precedence  
+4 Argument Lists are Evaluated Left-to-Right  
+
+#### Nested class
+
+* Member inner class cannot define static fields or methods.
