@@ -121,3 +121,4 @@ Here is what JLS says on this:
 #### Nested class
 
 * Member inner class cannot define static fields or methods.
+* Local inner classes cannot be nor declare anything static, have no access to local vars, except for those vars which are final or effectively final.
