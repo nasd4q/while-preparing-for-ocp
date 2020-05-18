@@ -1,7 +1,7 @@
 // A subinterface can override a default method
 // A class can redundantly declare to implement an interface
 
-package interfaces;
+package implementingmultiple;
 
 interface House {
     public default String getAddress() {

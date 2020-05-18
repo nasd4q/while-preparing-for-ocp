@@ -1,7 +1,7 @@
 // A class can be defined to implement 2 interfaces with competing default method but must then disambiguate
 // - ie override both methods (at once)
 
-package interfaces;
+package implementingmultiple;
 
 interface House2 {
     public default String getAddress() {
