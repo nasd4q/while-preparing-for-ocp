@@ -8,6 +8,8 @@
 
 * String does override equals(), StringBuilder does not and inherits that of Object.
 * A method of StringBuilder : public StringBuilder delete(int start, int end)
+* StringBuilder defines : `public void ensureCapacity(int minimumCapacity)` ( If the current capacity is less than the argument, the new capacity is the larger of: the minimumCapacity argument - or - twice the old capacity, plus 2. If the minimumCapacity argument is nonpositive, this method takes no action and simply returns.)
+* StringBuilder defines : `public StringBuilder(int capacity)` Constructs a string builder with no characters in it and an initial capacity specified by the capacity argument.
 
 #### `equals()`
 
@@ -41,8 +43,8 @@ Either respect the contract, or don't override equals in a meaningful way.
 #### `switch`
 
 * Every statement in a case block must belong to a case or to the default label.
-* No two case labels with same value
-* Can you use var inside case labels ?? empty switch block is valid ?
+* No two case labels with same value (even if one is defined with a final var and other with constant expr)
+* Can you use vars inside case labels ?? - Yes, if compile-time constants (ie final vars). Empty switch block is valid ? - Yes
 
 #### Operator precedence
 
@@ -68,10 +70,12 @@ Either respect the contract, or don't override equals in a meaningful way.
 
 * If each of try, catch and finally blocks (of same try-catch) contains return statement, the finally return statement is the one executed.
 * finally block is always executed (even if exception thrown in try or catch) . But calling `System.exit(int)` method exits the JVM and might prevent the execution of finally block.
+* Multiple catch blocks : "The IndexOutOfBoundsException is handled by the first catch block. Inside this block, a new NullPointerException is thrown. As this exception is not thrown inside the try block, it will not be caught by any of the remaining catch blocks. It will actually be sent to the caller of the main() method after the finally block is executed. (Hence '4' in the output.)"
 
 #### Lambdas
 
 * `(ArrayList al) -> al.isEmpty()` is not accepted where `Predicate<List>` is expected.
+* `dList.forEach(x->{ x = x + 10; });` doesn't change the elements (of type Double) of dList. (ie - Same behavior as with regular method calls...)
 
 #### Primitive data types
 
@@ -80,6 +84,7 @@ Either respect the contract, or don't override equals in a meaningful way.
 #### Modules
 
 * A standard module may export a non-standard package but that export must be qualified.
+* No circular dependencies in modules.
 
 #### Command-line tools
 
@@ -93,3 +98,14 @@ Either respect the contract, or don't override equals in a meaningful way.
 * From Java official tutorial : If a client (ie the one who calls the method) can reasonably be expected to recover from an exception, make it a checked exception. If a client cannot do anything to recover from the exception, make it an unchecked exception. 
 * Errors are never thrown by the programmer explicitly. They are thrown by the JVM automatically upon encountering serious issues (ex : OutOfMemoryError or StackOverflowError). They do not necessarily indicate a programming bug.
 * RuntimeExceptions such as NullPointerException, IndexOutOfBoundsException indicate that there is a coding error in the program. Ideally, instead of catching the exception, code should be fixed.
+
+
+#### `import` 
+
+* Assuming `System.out.println(logger.getMessages().isEmpty());` is referencing logger of imported public class Logger, which defines public method `ArrayList getMessages()`, _no need to import ArrayList, even if using method ArrayList::isEmpty_, importing Logger suffices.
+
+
+#### miscellaneous
+
+* You can have a method and a field with the same name in a class.
+* Considering `var i[ ] = new int[2] {1, 2} ;` : 1.Not compiling because var is not allowed as an element type of an array. 2. Not compiling because if you give the elements explicitely, you can't specify the size at the same time.
