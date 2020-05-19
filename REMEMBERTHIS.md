@@ -24,7 +24,7 @@ Either respect the contract, or don't override equals in a meaningful way.
 * `if ( Season.SUMMER == 2) {}` // DOES NOT COMPILE
 * `public enum ExtendedSeason extends Season { }` // DOES NOT COMPILE
 * While `Season s1 = Season.valueOf("SUMMER");` compiles, `Season s2 = Season.valueOf("summer");` throws a java.lang.IllegalArgumentException
-* Every enum constant is always implicitly public static final.
+* Every enum constant is always implicitly public static final. (Yes, like fields of interfaces.)
 * Constructor is either private or package-private
 * Enum implicitely extends java.lang.Enum class. And implicitly implements both Serializable and Comparable interface. But enum might implement other interfaces. 
 * Can also have abstract method overriden for each (enum constant) value. (`git checkout AbsMethInEnum`)
