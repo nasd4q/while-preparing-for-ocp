@@ -67,6 +67,7 @@ Either respect the contract, or don't override equals in a meaningful way.
 * `public interface Collection<E> extends Iterable<E>` has `boolean add(E e)` method.
 * `add` ensures that the specified collection contains the passed element. Returns true if collection changed as a result, false otherwise (in case of a duplicate not allowed by the collection).
 * If a collection refuses to add the element for any particular reason other than it already contains it (example : `null`), it _must_ throw an exception. 
+*  The Collection's removeIf method takes a Predicate and removes all elements of the List for which the Predicate returns true.
 
 #### Try Catch Finally
 
