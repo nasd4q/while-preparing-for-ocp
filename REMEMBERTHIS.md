@@ -43,7 +43,7 @@ Either respect the contract, or don't override equals in a meaningful way.
 
 * Every statement in a case block must belong to a case or to the default label.
 * No two case labels with same value (even if one is defined with a final var and other with constant expr)
-* Can you use vars inside case labels ?? - Yes, if compile-time constants (ie final vars). Empty switch block is valid ? - Yes
+* Can you use vars as case labels ?? - Yes, if compile-time constants (ie final vars). Empty switch block is valid ? - With {}, yes
 * `switch (season) { case WINTER: ...` OK 
 * `switch (season) { case Season.WINTER: ...` DOESNT COMPILE, `switch (season) { case 0: ...` DOESNT COMPILE EITHER
 
