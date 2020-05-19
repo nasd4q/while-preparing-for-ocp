@@ -125,3 +125,12 @@ Here is what JLS says on this:
 * Member, local and anonymous (aka "proper") inner classes cannot be static ("Member" !) nor define static fields or methods.
 * Local inner classes have no access to local vars, except for those vars which are final or effectively final.
 * Static "nested" classes cannot access the enclosing class instance (ie _non static_) variables.
+
+#### Overloading, boxing-unboxing, varargs
+
+* Widening is preferred to boxing/unboxing (so that old code still works as it used to), which in turn, is preferred over var-args. 
+* `probe(anInteger)` is never bound to `probe(Long l)` (different objects with no IS-A relationship). 
+* It will be bound to `probe(Integer i)`, then `probe(int i)`, then `probe(long i)`, then `probe(int... iA)`.
+* `probe(anInt)` is never bound to `probe(Long l)` neither. 
+* It is bound to `probe(int i)`, then `probe(long l)`, then `probe(Integer i)`, `probe(int... iA)`.
+
