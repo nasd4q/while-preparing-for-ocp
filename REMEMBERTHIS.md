@@ -122,6 +122,6 @@ Here is what JLS says on this:
 
 #### Nested class
 
-* Member, local and anonymous inner classes cannot be static ("Member" !) nor define static fields or methods.
+* Member, local and anonymous (aka "proper") inner classes cannot be static ("Member" !) nor define static fields or methods.
 * Local inner classes have no access to local vars, except for those vars which are final or effectively final.
 * Static nested classes cannot access the enclosing class instance (ie _non static_) variables.
