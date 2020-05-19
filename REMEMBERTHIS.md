@@ -48,10 +48,18 @@ Either respect the contract, or don't override equals in a meaningful way.
 * `switch (season) { case Season.WINTER: ...` DOESNT COMPILE, `switch (season) { case 0: ...` DOESNT COMPILE EITHER
 
 
-#### Operator precedence
+#### Operator precedence and order of execution
 
 * Though `b2 = b1 != b2` is valid, `b2 != b1 = !b2` doesn't compile (the = operator has least precedence of all operators)
 * `==` has less precedence than `>` so `true == 2 > 10` is same as `true == (2 > 10)`
+* The statement `iA[i] = i = 30 ;` will be processed as follows: `iA[i] = i = 30;` => `iA[0] = i = 30 ;`  =>  `i = 30; iA[0] = i ;` =>  ` iA[0] = 30 ;`
+
+Here is what JLS says on this:
+1 Evaluate Left-Hand Operand First  
+2 Evaluate Operands before Operation  
+3 Evaluation Respects Parentheses and Precedence  
+4 Argument Lists are Evaluated Left-to-Right 
+
 
 #### Inheritance and overriding
 
@@ -59,7 +67,7 @@ Either respect the contract, or don't override equals in a meaningful way.
 * Given Interface/Implementer situation : `Movable m = new Donkey(); System.out.println(m.location)` : 
 * 1. It compiles only if Movable has a (public, static and final) location field
 * 2. It will only show the content of Movable's location field content, even if hidden
-* Overriding method can declare any RuntimeException (such as NullPointerException) in throws clause even if overriden method doesn't declare a throws clause. (TODO - Check it)
+* Overriding method can declare any _unchecked_ exception (RuntimeException, Error, and subclasses such as NullPointerException, ArithmeticException etc) in throws clause even if overridden method doesn't declare a throws clause.
 * Subclass constructor : "[...] the compiler will automatically add super() as the first line [...]" CAREFUL that super() is accessible from the subclass !! If not, won't compile.
 
 #### Collections
@@ -75,6 +83,8 @@ Either respect the contract, or don't override equals in a meaningful way.
 * If each of try, catch and finally blocks (of same try-catch) contains return statement, the finally return statement is the one executed.
 * finally block is always executed (even if exception thrown in try or catch) . But calling `System.exit(int)` method exits the JVM and might prevent the execution of finally block.
 * Multiple catch blocks : "The IndexOutOfBoundsException is handled by the first catch block. Inside this block, a new NullPointerException is thrown. As this exception is not thrown inside the try block, it will not be caught by any of the remaining catch blocks. It will actually be sent to the caller of the main() method after the finally block is executed. (Hence '4' in the output.)"
+* Order of the exception classes listed in a multi-catch block (since Java 7) is not important. The only requirement is that they must not have a ancestor/successor relationship.
+* If the exceptions are unrelated then the order of the catch blocks doesn't matter. Otherwise, catch block for more specific exception (i.e. subclass) must appear before less specific exception (i.e. super class).
 
 #### Lambdas
 
@@ -84,6 +94,7 @@ Either respect the contract, or don't override equals in a meaningful way.
 #### Primitive data types
 
 * `43e1` is a double. `float f = 0x0123;`, `var f = 4f;` are valid declarations and initializations of floats.
+* `float val = 3; System.out.println(val);` Since, val is of type float, 3.0 is printed (ie not 3, not 3.0f).
 
 #### Modules
 
@@ -110,17 +121,10 @@ Either respect the contract, or don't override equals in a meaningful way.
 * Assuming `System.out.println(logger.getMessages().isEmpty());` is referencing logger of imported public class Logger, which defines public method `ArrayList getMessages()`, _no need to import ArrayList, even if using method ArrayList::isEmpty_, importing Logger suffices.
 * Wildcards do not look at subdirectories.
 
-#### miscellaneous
+#### `var`
 
-* You can have a method and a field with the same name in a class.
 * Considering `var i[ ] = new int[2] {1, 2} ;` : 1.Not compiling because var is not allowed as an element type of an array. 2. Not compiling because if you give the elements explicitely, you can't specify the size at the same time.
-* The statement `iA[i] = i = 30 ;` will be processed as follows: `iA[i] = i = 30;` => `iA[0] = i = 30 ;`  =>  `i = 30; iA[0] = i ;` =>  ` iA[0] = 30 ;`
-
-Here is what JLS says on this:
-1 Evaluate Left-Hand Operand First  
-2 Evaluate Operands before Operation  
-3 Evaluation Respects Parentheses and Precedence  
-4 Argument Lists are Evaluated Left-to-Right  
+* You cannot declare multiple variables in the same statement using var.
 
 #### Nested class
 
@@ -135,4 +139,12 @@ Here is what JLS says on this:
 * It will be bound to `probe(Integer i)`, then `probe(int i)`, then `probe(long i)`, then `probe(int... iA)`.
 * `probe(anInt)` is never bound to `probe(Long l)` neither. 
 * It is bound to `probe(int i)`, then `probe(long l)`, then `probe(Integer i)`, `probe(int... iA)`.
+
+#### Java 5 vs Java 8 vs Java 9 vs Java 11 etc.
+
+* However, Java 9 onwards, an interface is allowed to have private methods. It still cannot have protected methods though.
+
+#### miscellaneous
+
+* You can have a method and a field with the same name in a class.
 
