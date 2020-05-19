@@ -33,7 +33,7 @@ Either respect the contract, or don't override equals in a meaningful way.
 #### Constructors and initialization
 
 * Unlike methods, a constructor cannot be abstract, static, final, native, or synchronized.
-* If there are final fields uninitialized, they must be initialized in constructor, and can't be used before (-- unlike non final unitialized fields, right?)
+* Final variables must be explicitly initialized. In case of final fields, this can happen in instance initializer or every constructor. **In case of static final fields though**, this _must happen before_ (at time of declaration or in static initializer).
 * `One o = null;` won't initialize class One and won't cause class One static blocks to be executed.
 * `Two t = new Two();` will cause Class Two (and superclass and so on) to be initialized (after superclass).
 * `System.out;println(Sub.ID);`, where ID is a static field on a superclass of Sub, isn't sufficient to cause initialization of Sub class. (It should cause initialization of the class declaring the referenced static field ID though.)
@@ -43,7 +43,7 @@ Either respect the contract, or don't override equals in a meaningful way.
 
 * Every statement in a case block must belong to a case or to the default label.
 * No two case labels with same value (even if one is defined with a final var and other with constant expr)
-* Can you use vars as case labels ?? - Yes, if compile-time constants (ie final vars). Empty switch block is valid ? - With {}, yes
+* Can you use vars as case labels ?? - Yes, if compile-time constants (ie final vars). Empty switch block is valid ? - With {}, yes.
 * `switch (season) { case WINTER: ...` OK 
 * `switch (season) { case Season.WINTER: ...` DOESNT COMPILE, `switch (season) { case 0: ...` DOESNT COMPILE EITHER
 
@@ -52,6 +52,7 @@ Either respect the contract, or don't override equals in a meaningful way.
 
 * Though `b2 = b1 != b2` is valid, `b2 != b1 = !b2` doesn't compile (the = operator has least precedence of all operators)
 * `==` has less precedence than `>` so `true == 2 > 10` is same as `true == (2 > 10)`
+* `String str1 = "one"; String str2 = "two"; System.out.println( str1.equals(str1=str2) );` prints false.
 * The statement `iA[i] = i = 30 ;` will be processed as follows: `iA[i] = i = 30;` => `iA[0] = i = 30 ;`  =>  `i = 30; iA[0] = i ;` =>  ` iA[0] = 30 ;`
 
 Here is what JLS says on this:
@@ -80,7 +81,8 @@ Here is what JLS says on this:
 
 #### Try Catch Finally
 
-* If each of try, catch and finally blocks (of same try-catch) contains return statement, the finally return statement is the one executed.
+* If each of try, catch and finally blocks (of same try-catch) contains return statement, the value from the finally return statement is the one returned. (TODO - will all 3 return statement be evaluated or only the definitive one ?)
+* In a similar fashion, an exception thrown in finally will also be the one sent to the caller even if the try has also sent an uncaught exception.
 * finally block is always executed (even if exception thrown in try or catch) . But calling `System.exit(int)` method exits the JVM and might prevent the execution of finally block.
 * Multiple catch blocks : "The IndexOutOfBoundsException is handled by the first catch block. Inside this block, a new NullPointerException is thrown. As this exception is not thrown inside the try block, it will not be caught by any of the remaining catch blocks. It will actually be sent to the caller of the main() method after the finally block is executed. (Hence '4' in the output.)"
 * Order of the exception classes listed in a multi-catch block (since Java 7) is not important. The only requirement is that they must not have a ancestor/successor relationship.
@@ -143,6 +145,10 @@ Here is what JLS says on this:
 #### Java 5 vs Java 8 vs Java 9 vs Java 11 etc.
 
 * However, Java 9 onwards, an interface is allowed to have private methods. It still cannot have protected methods though.
+
+#### scopes
+
+* "[...] there is a redeclaration of i in the first for() which is not legal."
 
 #### miscellaneous
 
