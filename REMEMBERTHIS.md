@@ -60,6 +60,7 @@ Either respect the contract, or don't override equals in a meaningful way.
 * 1. It compiles only if Movable has a (public, static and final) location field
 * 2. It will only show the content of Movable's location field content, even if hidden
 * Overriding method can declare any RuntimeException (such as NullPointerException) in throws clause even if overriden method doesn't declare a throws clause. (TODO - Check it)
+* Subclass constructor : "[...] the compiler will automatically add super() as the first line [...]" CAREFUL that super() is accessible from the subclass !! If not, won't compile.
 
 #### Collections
 
@@ -67,7 +68,7 @@ Either respect the contract, or don't override equals in a meaningful way.
 * `public interface Collection<E> extends Iterable<E>` has `boolean add(E e)` method.
 * `add` ensures that the specified collection contains the passed element. Returns true if collection changed as a result, false otherwise (in case of a duplicate not allowed by the collection).
 * If a collection refuses to add the element for any particular reason other than it already contains it (example : `null`), it _must_ throw an exception. 
-*  The Collection's removeIf method takes a Predicate and removes all elements of the List for which the Predicate returns true.
+* The Collection's removeIf method takes a Predicate and removes all elements of the List for which the Predicate returns true. (And returns true if the collection was changed in the process...) 
 
 #### Try Catch Finally
 
