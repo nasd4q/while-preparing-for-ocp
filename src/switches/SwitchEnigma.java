@@ -35,6 +35,8 @@ class IsEmptySwitchValid { // Empty switch compiles
         int i = 0; // must be initialized for "switch (i)" to compile though
         switch (i) {
         }
+
+        //switch(i) //Uncommenting this line will cause "Error:(39, 18) java: '{' expected" though !
     }
 }
 
