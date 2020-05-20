@@ -110,6 +110,7 @@ Here is what JLS says on this:
 
 * In Java 7, "try with resources" statement was introduced, which does not require catch or finally blocks. (Else at least one of those is required. (TODO - check this)) 
 * catch and finally blocks are executed after the resources are closed.
+* "Any object that implements java.lang.AutoCloseable, which includes all objects which implement java.io.Closeable, can be used as a resource."
 
 
 #### Lambdas, double-colon operator
@@ -117,6 +118,11 @@ Here is what JLS says on this:
 * `(ArrayList al) -> al.isEmpty()` is not accepted where `Predicate<List>` is expected.
 * `dList.forEach(x->{ x = x + 10; });` doesn't change the elements (of type Double) of dList. (ie - Same behavior as with regular method calls...)
 * `slist.forEach(Student::debug);` is a valid way to call non-static (accessible) `void debug()` method on each Student object in slist.
+* "However, a lambda expression does not create a new scope for variables. Therefore, you cannot reuse the local variable names that have already been used in the enclosing method to declare the variables in your lambda expression. It would be like declaring the same variable twice."
+
+#### Functional interfaces
+
+* "The interface may have other default or static methods as well but those are not relevant. All that is required is that it must have exactly one abstract method."
 
 
 #### Primitive data types, and boxing
@@ -132,7 +138,7 @@ Here is what JLS says on this:
 * A standard module may export a non-standard package but that export must be qualified.
 * No circular dependencies in modules.
 * The command `javac --module-source-path c:\java\a -d c:\java\b -p c:\java\c -m x.y` will create class files under c:\java\b\x.y
-
+* "Each required module must be specified on a separate requires clause."
 
 #### Command-line tools
 
@@ -148,7 +154,7 @@ Here is what JLS says on this:
 * Errors are never thrown by the programmer explicitly. They are thrown by the JVM automatically upon encountering serious issues (ex : OutOfMemoryError or StackOverflowError). They do not necessarily indicate a programming bug.
 * RuntimeExceptions such as NullPointerException, IndexOutOfBoundsException indicate that there is a coding error in the program. Ideally, instead of catching the exception, code should be fixed.
 * A NullPointerException will be thrown if the expression given to the throw statement results in a null pointer.
-
+* "You are throwing a 'checked' exception and there is no try or catch block, or a throws clause. So it will not compile."
 
 #### `import` 
 
