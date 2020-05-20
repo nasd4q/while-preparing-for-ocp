@@ -92,6 +92,9 @@ Here is what JLS says on this:
 * `add` ensures that the specified collection contains the passed element. Returns true if collection changed as a result, false otherwise (in case of a duplicate not allowed by the collection).
 * If a collection refuses to add the element for any particular reason other than it already contains it (example : `null`), it _must_ throw an exception. 
 * The Collection's removeIf method takes a Predicate and removes all elements of the List for which the Predicate returns true. (And returns true if the collection was changed in the process...) 
+* With `ArrayList<Double> al = new ArrayList<>();`, `System.out.println(al.indexOf(1.0));` and `System.out.println(al.contains("string"));` both compile fine. In fact, those methods expect an argument of type Object... 
+* `java.util.Collection<E>` interface defines `boolean contains(Object o)`, not with the generic E... Same with `boolean containsAll(Collection<?> c)`. In fact, it seems like E is only used for `boolean add(E e)` and `boolean addAll(Collection<? extends E> c`) (speaking of the interface _Collection_). **And in** `Iterator<E> iterator()`.
+* In `ArrayList<E>`, `E set(int index, E element)` and others (`E remove(int index)`, `E get(int index)`, `List<E> subList(int fromIndex, int toIndex)` ) making use of compile-time type-checking...
 
 
 #### Try Catch Finally
@@ -123,7 +126,6 @@ Here is what JLS says on this:
 * `anInt == anInteger` This will return true (_in that particular case (!)_) because one operand is a primitive int, so the other will be unboxed and then the value will be compared.
 * `Float.NaN` can be assigned to a float (and returned, if float is the return type).
 * You cannot box an int into a Double object. Example : with `ArrayList<Double> al = new ArrayList<>();`, `al.add(111);` won't compile. (see `git checkout overloading`.)
-* `System.out.println(al.indexOf(1.0));` and `System.out.println(al.contains("string"));` are fine though.
 
 #### Modules
 
