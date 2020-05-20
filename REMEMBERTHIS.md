@@ -20,6 +20,7 @@
 
 * Contract stipulates : reflexive, symmetric, transitive, consistent, and returns false for null.
 * So shouldn't throw a NullPointerException in case null is the arg
+* "In other words, equals method of array classes returns the same result as ==."
 
 Careful : symmetry and transitivity requirements prevent from subclassing and overriding equals so that equals reflects a finer-grained relationship :
 Either respect the contract, or don't override equals in a meaningful way.
@@ -219,4 +220,5 @@ Here is what JLS says on this:
 * `getClass()` is a public instance method in Object class. That means it is polymorphic. In other words, this method is bound at run time.
 * `String s = 'a';` WON'T COMPILE
 * Unreachable statements prevent code from compiling. Numerous cases possible. For example statement after try-catch-finally where either try or catch returns, _for sure_. 
-
+* "JDK 11 does not include a separate JRE."
+* "All compound assignment operators internally do an explicit cast." (talking about += etc.)
