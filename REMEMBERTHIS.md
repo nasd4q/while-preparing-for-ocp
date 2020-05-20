@@ -122,7 +122,8 @@ Here is what JLS says on this:
 * `float val = 3; System.out.println(val);` Since, val is of type float, 3.0 is printed (ie not 3, not 3.0f).
 * `anInt == anInteger` This will return true (_in that particular case (!)_) because one operand is a primitive int, so the other will be unboxed and then the value will be compared.
 * `Float.NaN` can be assigned to a float (and returned, if float is the return type).
-* You cannot box an int into a Double object. Example : with `ArrayList<Double> al = new ArrayList<>();`, `al.add(111);` won't compile. `System.out.println(al.indexOf(1.0));` and `System.out.println(al.contains("string"));` are fine though.
+* You cannot box an int into a Double object. Example : with `ArrayList<Double> al = new ArrayList<>();`, `al.add(111);` won't compile. (see `git checkout overloading`.)
+* `System.out.println(al.indexOf(1.0));` and `System.out.println(al.contains("string"));` are fine though.
 
 #### Modules
 
@@ -166,7 +167,7 @@ Here is what JLS says on this:
 * Static "nested" classes cannot access the enclosing class instance (ie _non static_) variables.
 
 
-#### Overloading, boxing-unboxing, varargs
+#### Overloading, boxing-unboxing, varargs (`git checkout overloading`)
 
 * Widening is preferred to boxing/unboxing (so that old code still works as it used to), which in turn, is preferred over var-args. 
 * `probe(anInteger)` is never bound to `probe(Long l)` (different objects with no IS-A relationship). 
