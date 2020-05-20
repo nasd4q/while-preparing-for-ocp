@@ -98,7 +98,7 @@ Here is what JLS says on this:
 
 * If each of try, catch and finally blocks (of same try-catch) contains return statement, the value from the finally return statement is the one returned. (TODO - will all 3 return statement be evaluated or only the definitive one ?)
 * In a similar fashion, an exception thrown in finally will also be the one sent to the caller even if the try has also sent an uncaught exception.
-* finally block is always executed (even if exception thrown in try or catch) . But calling `System.exit(int)` method exits the JVM and might prevent the execution of finally block.
+* finally block is always executed (even if exception thrown in try or catch; or one of those returns) . But calling `System.exit(int)` method exits the JVM and might prevent the execution of finally block.
 * Multiple catch blocks : "The IndexOutOfBoundsException is handled by the first catch block. Inside this block, a new NullPointerException is thrown. As this exception is not thrown inside the try block, it will not be caught by any of the remaining catch blocks. It will actually be sent to the caller of the main() method after the finally block is executed. (Hence '4' in the output.)"
 * Order of the exception classes listed in a multi-catch block (since Java 7) is not important. The only requirement is that they must not have a ancestor/successor relationship.
 * If the exceptions are unrelated then the order of the catch blocks doesn't matter. Otherwise, catch block for more specific exception (i.e. subclass) must appear before less specific exception (i.e. super class).
@@ -120,8 +120,9 @@ Here is what JLS says on this:
 
 * `43e1` is a double. `float f = 0x0123;`, `var f = 4f;` are valid declarations and initializations of floats.
 * `float val = 3; System.out.println(val);` Since, val is of type float, 3.0 is printed (ie not 3, not 3.0f).
-* `anInt == anInteger` This will return true (_in that particular case (!)_)because one operand is a primitive int, so the other will be unboxed and then the value will be compared.
+* `anInt == anInteger` This will return true (_in that particular case (!)_) because one operand is a primitive int, so the other will be unboxed and then the value will be compared.
 * `Float.NaN` can be assigned to a float (and returned, if float is the return type).
+* You cannot box an int into a Double object. Example : with `ArrayList<Double> al = new ArrayList<>();`, `al.add(111);` won't compile. `System.out.println(al.indexOf(1.0));` and `System.out.println(al.contains("string"));` are fine though.
 
 #### Modules
 
@@ -196,9 +197,17 @@ Here is what JLS says on this:
 * Actually, String class itself is final and so all of its methods are implicitly final.
 
 
+#### Unreachable statements
+
+* `while (false) { x=3; }` is a compile-time error because the statement x=3; is not reachable; `do { x=3; } while (false);` is fine though
+* Similarly, `for( int i = 0; false; i++) x = 3;` is also a compile time error because x= 3 is unreachable.  
+* `if(false){ x=3; }`, JLS says : this as an exception to the rule. (allowing `if (DEBUG) { ...}`. In this case, setting DEBUG to false will make the compiler optimize by removing the whole block from the class file generated.)
+
+
 #### miscellaneous
 
 * You can have a method and a field with the same name in a class.
 * `getClass()` is a public instance method in Object class. That means it is polymorphic. In other words, this method is bound at run time.
 * `String s = 'a';` WON'T COMPILE
 * Unreachable statements prevent code from compiling. Numerous cases possible. For example statement after try-catch-finally where either try or catch returns, _for sure_. 
+
