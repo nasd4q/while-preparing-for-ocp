@@ -10,5 +10,6 @@ public class ConstructorTest {
         List<Object> objects = new ArrayList<Object>(strings);
         //  compiles because the constructor accepts a java.util.Collection<? extends E>
         //      (where E here is Object)
+        objects.forEach(System.out::println);
     }
 }
