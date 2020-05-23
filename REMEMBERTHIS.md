@@ -96,6 +96,7 @@ Here is what JLS says on this:
 * With `ArrayList<Double> al = new ArrayList<>();`, `System.out.println(al.indexOf(1.0));` and `System.out.println(al.contains("string"));` both compile fine. In fact, those methods expect an argument of type Object... 
 * `java.util.Collection<E>` interface defines `boolean contains(Object o)`, not with the generic E... Same with `boolean containsAll(Collection<?> c)`. In fact, it seems like E is only used for `boolean add(E e)` and `boolean addAll(Collection<? extends E> c`) (speaking of the interface _Collection_). **And in** `Iterator<E> iterator()`.
 * In `ArrayList<E>`, `E set(int index, E element)` and others (`E remove(int index)`, `E get(int index)`, `List<E> subList(int fromIndex, int toIndex)` ) making use of compile-time type-checking...
+* Can you pass a Collection<T> to the constructor ArrayList<S>(Collection) where T != S ? `List<String> strings = new ArrayList<String>(); List<Object> objects = new ArrayList<Object>(strings);`
 
 
 #### Try Catch Finally
@@ -123,7 +124,7 @@ Here is what JLS says on this:
 
 #### Functional interfaces
 
-* "The interface may have other default or static methods as well but those are not relevant. All that is required is that it must have exactly one abstract method."
+* "The interface may have other default or static methods as well but those are not relevant. All that is required is that it must have exactly one abstract method." (And yes, it must be an interface.)
 
 
 #### Primitive data types, and boxing
@@ -213,6 +214,10 @@ Here is what JLS says on this:
 * Similarly, `for( int i = 0; false; i++) x = 3;` is also a compile time error because x= 3 is unreachable.  
 * `if(false){ x=3; }`, JLS says : this as an exception to the rule. (allowing `if (DEBUG) { ...}`. In this case, setting DEBUG to false will make the compiler optimize by removing the whole block from the class file generated.)
 
+
+#### `java.io.Serializable`
+
+* Is an example of "marker" interface.
 
 #### miscellaneous
 
