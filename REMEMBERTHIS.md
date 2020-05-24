@@ -86,17 +86,36 @@ Here is what JLS says on this:
 * Which variable (or static method) will be used depends on the class that the variable is declared of.
 
 
-#### Collections
+#### `java.util.Collection<E>`
 
 * Map and Collection are unrelated interfaces, Map::values (non-static) returns a Collection
 * `public interface Collection<E> extends Iterable<E>` has `boolean add(E e)` method.
 * `add` ensures that the specified collection contains the passed element. Returns true if collection changed as a result, false otherwise (in case of a duplicate not allowed by the collection).
 * If a collection refuses to add the element for any particular reason other than it already contains it (example : `null`), it _must_ throw an exception. 
-* The Collection's removeIf method takes a Predicate and removes all elements of the List for which the Predicate returns true. (And returns true if the collection was changed in the process...) 
 * With `ArrayList<Double> al = new ArrayList<>();`, `System.out.println(al.indexOf(1.0));` and `System.out.println(al.contains("string"));` both compile fine. In fact, those methods expect an argument of type Object... 
 * `java.util.Collection<E>` interface defines `boolean contains(Object o)`, not with the generic E... Same with `boolean containsAll(Collection<?> c)`. In fact, it seems like E is only used for `boolean add(E e)` and `boolean addAll(Collection<? extends E> c`) (speaking of the interface _Collection_). **And in** `Iterator<E> iterator()`.
 * In `ArrayList<E>`, `E set(int index, E element)` and others (`E remove(int index)`, `E get(int index)`, `List<E> subList(int fromIndex, int toIndex)` ) making use of compile-time type-checking...
-* Can you pass a Collection<T> to the constructor ArrayList<S>(Collection) where T != S ? `List<String> strings = new ArrayList<String>(); List<Object> objects = new ArrayList<Object>(strings);`
+* ArrayList<E> constructor which takes Collection takes a Collection<? extends E>. So for example `List<Object> objects = new ArrayList<Object>(strings);` where `strings` is a `List<String>` compiles.
+* `java.util.Collection<E>` defines `default boolean removeIf(Predicate<? super E> filter)`. (Returns true if the collection was changed in the process...) 
+* `java.util.List<E>` defines `default void replaceAll(UnaryOperator<E> operator)`
+* `java.util.Vector<E>` implements `java.util.List<E>`, `java.util.ArrayDeque<E>` doesn't.
+* The Map interface uses put() rather than add() !
+
+
+#### `java.lang.Iterable<T>`
+
+* `java.lang.Iterable<T>` defines `default void forEach(Consumer<? super T> action)`
+* "Enhanced" for loops can be used with any Iterable.
+
+
+#### `java.lang.Comparable<T>`, `java.util.Comparator<T>`
+
+* `java.lang.String` implements `java.lang.Comparable<String>`
+
+
+#### Generics
+
+* TODO `<? super String>` - does it match a super _interface_?
 
 
 #### Try Catch Finally
@@ -107,6 +126,7 @@ Here is what JLS says on this:
 * Multiple catch blocks : "The IndexOutOfBoundsException is handled by the first catch block. Inside this block, a new NullPointerException is thrown. As this exception is not thrown inside the try block, it will not be caught by any of the remaining catch blocks. It will actually be sent to the caller of the main() method after the finally block is executed. (Hence '4' in the output.)"
 * Order of the exception classes listed in a multi-catch block (since Java 7) is not important. The only requirement is that they must not have a ancestor/successor relationship.
 * If the exceptions are unrelated then the order of the catch blocks doesn't matter. Otherwise, catch block for more specific exception (i.e. subclass) must appear before less specific exception (i.e. super class).
+
 
 ##### About Java 7 's "try with resources"
 
@@ -122,6 +142,7 @@ Here is what JLS says on this:
 * `slist.forEach(Student::debug);` is a valid way to call non-static (accessible) `void debug()` method on each Student object in slist.
 * "However, a lambda expression does not create a new scope for variables. Therefore, you cannot reuse the local variable names that have already been used in the enclosing method to declare the variables in your lambda expression. It would be like declaring the same variable twice."
 
+
 #### Functional interfaces
 
 * "The interface may have other default or static methods as well but those are not relevant. All that is required is that it must have exactly one abstract method." (And yes, it must be an interface.)
@@ -135,12 +156,14 @@ Here is what JLS says on this:
 * `Float.NaN` can be assigned to a float (and returned, if float is the return type).
 * You cannot box an int into a Double object. Example : with `ArrayList<Double> al = new ArrayList<>();`, `al.add(111);` won't compile. (see `git checkout overloading`.)
 
+
 #### Modules
 
 * A standard module may export a non-standard package but that export must be qualified.
 * No circular dependencies in modules.
 * The command `javac --module-source-path c:\java\a -d c:\java\b -p c:\java\c -m x.y` will create class files under c:\java\b\x.y
 * "Each required module must be specified on a separate requires clause."
+
 
 #### Command-line tools
 
@@ -157,6 +180,7 @@ Here is what JLS says on this:
 * RuntimeExceptions such as NullPointerException, IndexOutOfBoundsException indicate that there is a coding error in the program. Ideally, instead of catching the exception, code should be fixed.
 * A NullPointerException will be thrown if the expression given to the throw statement results in a null pointer.
 * "You are throwing a 'checked' exception and there is no try or catch block, or a throws clause. So it will not compile."
+
 
 #### `import` 
 
@@ -218,6 +242,7 @@ Here is what JLS says on this:
 #### `java.io.Serializable`
 
 * Is an example of "marker" interface.
+
 
 #### miscellaneous
 
