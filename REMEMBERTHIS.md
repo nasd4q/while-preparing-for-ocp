@@ -117,7 +117,7 @@ Here is what JLS says on this:
 
 * TODO `<? super String>` - does it match a super _interface_?
 * TODO `Predicate<? super String> predicate = s -> s.startsWith("g");` // COMPILES ? If yes as what?
-
+* TODO Check where shorthand <> is acceptable and where not (method call arg, return statement etc)
 
 #### Try Catch Finally
 
