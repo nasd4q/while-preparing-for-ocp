@@ -245,6 +245,11 @@ Here is what JLS says on this:
 * Is an example of "marker" interface.
 
 
+#### Localization
+
+* `Locale locale = Locale.getDefault(); System.out.println(locale);`
+
+
 #### miscellaneous
 
 * You can have a method and a field with the same name in a class.
