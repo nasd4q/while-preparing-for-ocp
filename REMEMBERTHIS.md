@@ -152,7 +152,7 @@ Here is what JLS says on this:
 
 #### Streams
 
-* "Note that even if the limit(9) statement was changed to limit(10), the program could still hang, since the JVM might not allocate 10 threads to the parallel stream." [^OCP - page 564]
+* "Note that even if the limit(9) statement was changed to limit(10), the program could still hang, since the JVM might not allocate 10 threads to the parallel stream." \[OCP - page 564\]
 
 #### Primitive data types, and boxing
 
@@ -271,4 +271,4 @@ Here is what JLS says on this:
 * "All compound assignment operators internally do an explicit cast." (talking about += etc.)
 
 
-[^OCP] OCP Java SE 8 Programmer II - Study Guide (1Z0-809) - Jeanne Boyarsky and Scott Selikoff
+\[OCP\] : OCP Java SE 8 Programmer II - Study Guide (1Z0-809) - Jeanne Boyarsky and Scott Selikoff
