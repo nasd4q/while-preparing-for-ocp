@@ -150,7 +150,7 @@ Here is what JLS says on this:
 
 
 
-#### Streams
+#### Streams and parallel streams
 
 * "Note that even if the limit(9) statement was changed to limit(10), the program could still hang, since the JVM might not allocate 10 threads to the parallel stream." \[OCP - page 564\]
 
