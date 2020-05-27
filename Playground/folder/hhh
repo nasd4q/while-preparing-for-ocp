@@ -1,0 +1,82 @@
+folder = new File(playground, "folder");
+        System.out.println(folder.isFile());
+        System.out.println(folder.isDirectory());
+        System.out.println(folder.length());
+
+        File emptyfold = new File(playground, "emptyfold");
+
+        System.out.println(emptyfold.isFile());
+        System.out.println(emptyfold.isDirectory());
+        System.out.println(emptyfold.length());
+
+        File ggg = new File(playground, "folder/ggg");
+
+        System.out.println(ggg.isFile());
+        System.out.println(ggg.isDirec
+
+        folder = new File(playground, "folder");
+                System.out.println(folder.isFile());
+                System.out.println(folder.isDirectory());
+                System.out.println(folder.length());
+
+                File emptyfold = new File(playground, "emptyfold");
+
+                System.out.println(emptyfold.isFile());
+                System.out.println(emptyfold.isDirectory());
+                System.out.println(emptyfold.length());
+
+                File ggg = new File(playground, "folder/ggg");
+
+                System.out.println(ggg.isFile());
+                System.out.println(ggg.isDirec
+
+                loremipsum
+
+
+                folder = new File(playground, "folder");
+                        System.out.println(folder.isFile());
+                        System.out.println(folder.isDirectory());
+                        System.out.println(folder.length());
+
+                        File emptyfold = new File(playground, "emptyfold");
+
+                        System.out.println(emptyfold.isFile());
+                        System.out.println(emptyfold.isDirectory());
+                        System.out.println(emptyfold.length());
+
+                        File ggg = new File(playground, "folder/ggg");
+
+                        System.out.println(ggg.isFile());
+                        System.out.println(ggg.isDirec
+
+                        folder = new File(playground, "folder");
+                                System.out.println(folder.isFile());
+                                System.out.println(folder.isDirectory());
+                                System.out.println(folder.length());
+
+                                File emptyfold = new File(playground, "emptyfold");
+
+                                System.out.println(emptyfold.isFile());
+                                System.out.println(emptyfold.isDirectory());
+                                System.out.println(emptyfold.length());
+
+                                File ggg = new File(playground, "folder/ggg");
+
+                                System.out.println(ggg.isFile());
+                                System.out.println(ggg.isDirec
+
+                                folder = new File(playground, "folder");
+                                        System.out.println(folder.isFile());
+                                        System.out.println(folder.isDirectory());
+                                        System.out.println(folder.length());
+
+                                        File emptyfold = new File(playground, "emptyfold");
+
+                                        System.out.println(emptyfold.isFile());
+                                        System.out.println(emptyfold.isDirectory());
+                                        System.out.println(emptyfold.length());
+
+                                        File ggg = new File(playground, "folder/ggg");
+
+                                        System.out.println(ggg.isFile());
+                                        System.out.println(ggg.isDirec
