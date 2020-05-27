@@ -149,6 +149,11 @@ Here is what JLS says on this:
 * "The interface may have other default or static methods as well but those are not relevant. All that is required is that it must have exactly one abstract method." (And yes, it must be an interface.)
 
 
+
+#### Streams
+
+* "Note that even if the limit(9) statement was changed to limit(10), the program could still hang, since the JVM might not allocate 10 threads to the parallel stream." [^OCP - page 564]
+
 #### Primitive data types, and boxing
 
 * `43e1` is a double. `float f = 0x0123;`, `var f = 4f;` are valid declarations and initializations of floats.
@@ -250,6 +255,12 @@ Here is what JLS says on this:
 * `Locale locale = Locale.getDefault(); System.out.println(locale);`
 
 
+
+#### `volatile`
+
+* "Since you are setting this variable from a different thread e.g. main thread, it's important to mark this variable volatile, otherwise, it's possible for the running thread to cache its value and never check back to main memory for updated value and running infinitely." (https://www.java67.com/2015/07/how-to-stop-thread-in-java-example.html)
+
+
 #### miscellaneous
 
 * You can have a method and a field with the same name in a class.
@@ -258,3 +269,6 @@ Here is what JLS says on this:
 * Unreachable statements prevent code from compiling. Numerous cases possible. For example statement after try-catch-finally where either try or catch returns, _for sure_. 
 * "JDK 11 does not include a separate JRE."
 * "All compound assignment operators internally do an explicit cast." (talking about += etc.)
+
+
+[^OCP] OCP Java SE 8 Programmer II - Study Guide (1Z0-809) - Jeanne Boyarsky and Scott Selikoff
