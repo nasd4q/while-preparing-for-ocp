@@ -108,6 +108,11 @@ Here is what JLS says on this:
 * "Enhanced" for loops can be used with any Iterable.
 
 
+#### `java.util.Iterator<E>` (interface)
+
+* "...they \[iterators returned by the synchronized collections\] are fail-fast—meaning that if they detect that the collection has changed since iteration began, they throw the unchecked ConcurrentModificationException." \[Java Concurrency In Practice - Brian Goetz, page 82\]
+
+
 #### `java.lang.Comparable<T>`, `java.util.Comparator<T>`
 
 * `java.lang.String` implements `java.lang.Comparable<String>`
@@ -153,6 +158,7 @@ Here is what JLS says on this:
 #### Streams and parallel streams
 
 * "Note that even if the limit(9) statement was changed to limit(10), the program could still hang, since the JVM might not allocate 10 threads to the parallel stream." \[OCP - page 564\]
+
 
 #### Primitive data types, and boxing
 
