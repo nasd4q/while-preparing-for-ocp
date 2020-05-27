@@ -100,6 +100,7 @@ Here is what JLS says on this:
 * `java.util.List<E>` defines `default void replaceAll(UnaryOperator<E> operator)`
 * `java.util.Vector<E>` implements `java.util.List<E>`, `java.util.ArrayDeque<E>` doesn't.
 * The Map interface uses put() rather than add() !
+* `Arrays.asList(nullValuedArg);` throws a NullPointerException.
 
 
 #### `java.lang.Iterable<T>`
