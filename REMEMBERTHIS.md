@@ -129,7 +129,7 @@ Here is what JLS says on this:
 * If the exceptions are unrelated then the order of the catch blocks doesn't matter. Otherwise, catch block for more specific exception (i.e. subclass) must appear before less specific exception (i.e. super class).
 
 
-##### About Java 7 's "try with resources"
+#### Java 7 's "try with resources"
 
 * In Java 7, "try with resources" statement was introduced, which does not require catch or finally blocks. (Else at least one of those is required. (TODO - check this)) 
 * catch and finally blocks are executed after the resources are closed.
@@ -270,5 +270,9 @@ Here is what JLS says on this:
 * "JDK 11 does not include a separate JRE."
 * "All compound assignment operators internally do an explicit cast." (talking about += etc.)
 
+
+
+
+##### Sources
 
 \[OCP\] : OCP Java SE 8 Programmer II - Study Guide (1Z0-809) - Jeanne Boyarsky and Scott Selikoff
