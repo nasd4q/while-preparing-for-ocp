@@ -9,7 +9,6 @@ import java.util.concurrent.*;
 public class TestClass {
     static int beeps = 0;
     public static void main(String[] args) throws InterruptedException {
-        Executors.newSingleThreadExecutor()
 
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
         Runnable beeper = ()->System.out.println("beep #" + ++beeps);
