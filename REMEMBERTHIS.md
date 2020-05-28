@@ -272,6 +272,17 @@ Here is what JLS says on this:
 
 * "The performance gain from using a Buffered class to access a low-level file stream cannot be overstated. Unless you are doing something very specialized in your application, you should always wrap a file stream with a Buffered class in practice." \[OCP - page 415\]
 
+
+#### Serialization
+
+* "By changing the serialVersionUID of the class, we modified its version/state. As a result, no compatible classes were found during deserialization, and an InvalidClassException was thrown." (https://www.baeldung.com/java-serial-version-uid)
+* `public class InvalidClassException extends ObjectStreamException` - Thrown when the Serialization runtime detects one of the following problems with a Class.
+    - The serial version of the class does not match that of the class descriptor read from the stream
+    - The class contains unknown datatypes
+    - The class does not have an accessible no-arg constructor. (https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/InvalidClassException.html)
+* ...thrown by `public final Object readObject() throws IOException, ClassNotFoundException` of `java.io.ObjectInputStream` when "Something is wrong with a class used by serialization." [oracle java doc](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/ObjectInputStream.html#readObject())
+
+    
 #### miscellaneous
 
 * You can have a method and a field with the same name in a class.
