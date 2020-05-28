@@ -193,7 +193,7 @@ Here is what JLS says on this:
 * RuntimeExceptions such as NullPointerException, IndexOutOfBoundsException indicate that there is a coding error in the program. Ideally, instead of catching the exception, code should be fixed.
 * A NullPointerException will be thrown if the expression given to the throw statement results in a null pointer.
 * "You are throwing a 'checked' exception and there is no try or catch block, or a throws clause. So it will not compile."
-
+* redundant throws clause ? 
 
 #### `import` 
 
