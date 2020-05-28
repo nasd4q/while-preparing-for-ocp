@@ -264,7 +264,7 @@ Here is what JLS says on this:
     - The serial version of the class does not match that of the class descriptor read from the stream
     - The class contains unknown datatypes
     - The class does not have an accessible no-arg constructor. (https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/InvalidClassException.html)
-* ...thrown by `public final Object readObject() throws IOException, ClassNotFoundException` of `java.io.ObjectInputStream` when "Something is wrong with a class used by serialization." [Oracle doc](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/ObjectInputStream.html#readObject())
+* ...thrown by `public final Object readObject() throws IOException, ClassNotFoundException` of `java.io.ObjectInputStream` when "Something is wrong with a class used by serialization." ([Oracle doc](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/ObjectInputStream.html#readObject()))
 
 
 #### I/O
@@ -273,7 +273,7 @@ Here is what JLS says on this:
 * Talking about `new File(oneStringArg)`, "Option C is also correct because Java will convert the slashes to the right one when working with paths" \[OCP - page 566\]
 * Talking about calling `mark(int)` and `reset()`  on an instance of a [`java.io.InputStream`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/InputStream.html) (abstract class !) "Not all java.io streams support the mark() operation; therefore, without calling markSupported() on the stream, the result is unknown until runtime." \[OCP - page 568\]
 
-#### Java 6's `java.io.Console` retrieved by invoking  `System.console()` [Oracle doc](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Console.html)
+#### Java 6's `java.io.Console` retrieved by invoking  `System.console()` ([Oracle doc](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Console.html))
 
 * Singleton instance returned by `System.console()`, `System.console()` may return `null` in case no I/O console available.
 * method `Console format​(String fmt, Object... args)` "Writes a formatted string to this console's output stream using the specified format string and arguments."
