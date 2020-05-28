@@ -267,6 +267,19 @@ Here is what JLS says on this:
 * ...thrown by `public final Object readObject() throws IOException, ClassNotFoundException` of `java.io.ObjectInputStream` when "Something is wrong with a class used by serialization." [Oracle doc](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/ObjectInputStream.html#readObject())
 
 
+#### I/O
+
+* "The performance gain from using a Buffered class to access a low-level file stream cannot be overstated. Unless you are doing something very specialized in your application, you should always wrap a file stream with a Buffered class in practice." \[OCP - page 415\]
+* Talking about `new File(oneStringArg)`, "Option C is also correct because Java will convert the slashes to the right one when working with paths" \[OCP - page 566\]
+
+
+#### Java 6's `java.io.Console` retrieved by invoking  `System.console()` [Oracle doc](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Console.html)
+
+* Singleton instance returned by `System.console()`, `System.console()` may return `null` in case no I/O console available.
+* method `Console format​(String fmt, Object... args)` "Writes a formatted string to this console's output stream using the specified format string and arguments."
+* method `Console printf​(String format, Object... args)` "A convenience method to write a formatted string to this console's output stream using the specified format string and arguments."
+* ... but no "print" or "println" methods ! (Use `PrintWriter writer()`	which "retrieves the unique PrintWriter object associated with this console".)
+
 
 #### Localization
 
@@ -278,10 +291,6 @@ Here is what JLS says on this:
 
 * "Since you are setting this variable from a different thread e.g. main thread, it's important to mark this variable volatile, otherwise, it's possible for the running thread to cache its value and never check back to main memory for updated value and running infinitely." (https://www.java67.com/2015/07/how-to-stop-thread-in-java-example.html)
 
-
-#### I/O
-
-* "The performance gain from using a Buffered class to access a low-level file stream cannot be overstated. Unless you are doing something very specialized in your application, you should always wrap a file stream with a Buffered class in practice." \[OCP - page 415\]
 
 
 
