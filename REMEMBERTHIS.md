@@ -268,6 +268,10 @@ Here is what JLS says on this:
 * "Since you are setting this variable from a different thread e.g. main thread, it's important to mark this variable volatile, otherwise, it's possible for the running thread to cache its value and never check back to main memory for updated value and running infinitely." (https://www.java67.com/2015/07/how-to-stop-thread-in-java-example.html)
 
 
+#### I/O
+
+* "The performance gain from using a Buffered class to access a low-level file stream cannot be overstated. Unless you are doing something very specialized in your application, you should always wrap a file stream with a Buffered class in practice." \[OCP - page 415\]
+
 #### miscellaneous
 
 * You can have a method and a field with the same name in a class.
