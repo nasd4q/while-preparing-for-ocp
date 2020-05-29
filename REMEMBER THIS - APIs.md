@@ -56,6 +56,10 @@
 * ... but no "print" or "println" methods ! (Use `PrintWriter writer()`	which "retrieves the unique PrintWriter object associated with this console".)
 
 
-#### NIO 2
+#### NIO.2
 
 * Finally, we can also use the toRealPath() method to gain access to the current working directory, such as shown here: `System.out.println(Paths.get(".").toRealPath());` \[OCP - page 471\]
+* "The method Files.isSameFile() first checks to see if the Path values are the same in terms of equals(). Since the first path is relative and the second path is absolute, this comparison will return false, forcing isSameFile() to check for the existence of both paths in the file system. Since we know /zoo/turkey does not exist, a NoSuchFileException is thrown" \[OCP - page 569\]
+* "First, the resolve() method does not normalize any path symbols, so C and D are not correct. Second, calling resolve() with an absolute path as a parameter returns the absolute path" \[OCP - page 569\]
+* "Remember, isSameFile()returns true only if the files pointed to in the file system are the same, without regard to the file contents" \[OCP - page 570\]
+* "Eliminating ".." and a preceding name from a path may result in the path that locates a different file than the original path. This can arise when the preceding name is a symbolic link." (`Path normalize()` method of `java.nio.file.Path` Interface, [Oracle doc](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Path.html#normalize())
