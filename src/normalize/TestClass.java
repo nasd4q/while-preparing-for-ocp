@@ -30,3 +30,9 @@ class TestClass2 {
         //System.out.println(Paths.get("").getName(1)); // throws java.lang.IllegalArgumentException
     }
 }
+
+class ReturnsTrueIndeed {
+    public static void main(String[] args) {
+        System.out.println(Paths.get("").equals(Paths.get(".").normalize())); //true
+    }
+}
