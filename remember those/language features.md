@@ -64,7 +64,7 @@ Either respect the contract, or don't override equals in a meaningful way.
 * Member, local and anonymous (aka "proper") inner classes cannot be static ("Member" !) nor define static fields or methods.
 * Local inner classes have no access to local vars, except for those vars which are final or effectively final.
 * Static "nested" classes cannot access the enclosing class instance (ie _non static_) variables.
-
+* "A non static inner class may have static members. If you make them final." (Enthuware)
 
 #### static members
 

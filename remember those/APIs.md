@@ -24,6 +24,7 @@
 * `java.util.Vector<E>` implements `java.util.List<E>`, `java.util.ArrayDeque<E>` doesn't.
 * The Map interface uses put() rather than add() !
 * `Arrays.asList(nullValuedArg);` throws a `java.lang.NullPointerException`.
+* "A NavigableSet is a SortedSet extended with navigation methods reporting closest matches for given search targets." (Enthuware)
 
 
 #### `java.lang.Iterable<T>`
@@ -73,3 +74,8 @@
 * Inside the JDK, inside java.sql/java.sql package, only interfaces : Driver, Connection, Statement, ResultSet. Implementations of those provided by vendor-specific "driver JAR".
 * "There are two main ways to get a Connection: DriverManager or DataSource. \[...\] Do not use a DriverManager in code someone is paying you to write." \[OCP - page 515\]
 * "Starting with JDBC 4.0, driver implementations were required to provide the name of the class implementing Driver in a file named java.sql.Driver in the directory META- INF/service" \[OCP - page 571\]
+
+
+#### `java.util.concurrent` package (since JAVA 1.5)
+
+* Callable.call() allows you to declare checked exceptions while Runnable.run() does not.
