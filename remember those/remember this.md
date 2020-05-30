@@ -136,8 +136,9 @@ Here is what JLS says on this:
     - The serial version of the class does not match that of the class descriptor read from the stream
     - The class contains unknown datatypes
     - The class does not have an accessible no-arg constructor. (https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/InvalidClassException.html)
-* ...thrown by `public final Object readObject() throws IOException, ClassNotFoundException` of `java.io.ObjectInputStream` when "Something is wrong with a class used by serialization." ([Oracle doc](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/ObjectInputStream.html#readObject()))
-
+* ...thrown by `public final Object readObject() throws IOException, ClassNotFoundException` of `java.io.ObjectInputStream` when "Something is wrong with a class used by serialization." ([Oracle docs](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/ObjectInputStream.html#readObject()))
+* "However, it is highly recommended that each class declares its serialVersionUID as the generated one is compiler dependent and thus may result in unexpected InvalidClassExceptions" ([baeldung](https://www.baeldung.com/java-serialization))
+* If a class is serializable _and_ a subclass of a non-serializable one with _no no-arg constructor_, what happens during serialization - deserialization ?
 
 #### Localization
 
