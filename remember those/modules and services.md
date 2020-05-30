@@ -10,7 +10,7 @@ module java.sql {
     exports javax.transaction.xa;
     uses java.sql.Driver;
 }
-```
+``
 
 A service is provided by a module :
 
