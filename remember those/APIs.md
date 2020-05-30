@@ -72,3 +72,4 @@
 
 * Inside the JDK, inside java.sql/java.sql package, only interfaces : Driver, Connection, Statement, ResultSet. Implementations of those provided by vendor-specific "driver JAR".
 * "There are two main ways to get a Connection: DriverManager or DataSource. \[...\] Do not use a DriverManager in code someone is paying you to write." \[OCP - page 515\]
+* "Starting with JDBC 4.0, driver implementations were required to provide the name of the class implementing Driver in a file named java.sql.Driver in the directory META- INF/service" \[OCP - page 571\]

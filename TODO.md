@@ -60,4 +60,5 @@ System.out.println(Files.deleteIfExists(path) ? "Success": "Try Again");
     ---> What it that META-INF/ directory ??? 
 
 * "int id = (Integer) idField;" \[OCP - page 528\]. could e have cast directly to (int) ?? (I guess not) 
-    
+
+* ResultSet    
