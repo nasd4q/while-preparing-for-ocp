@@ -157,7 +157,3 @@ Here is what JLS says on this:
 * Unreachable statements prevent code from compiling. Numerous cases possible. For example statement after try-catch-finally where either try or catch returns, _for sure_. 
 * "JDK 11 does not include a separate JRE."
 * "All compound assignment operators internally do an explicit cast." (talking about += etc.)
-
-##### Sources
-
-\[OCP\] : OCP Java SE 8 Programmer II - Study Guide (1Z0-809) - Jeanne Boyarsky and Scott Selikoff

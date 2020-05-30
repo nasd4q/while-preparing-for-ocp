@@ -66,3 +66,9 @@
 * "The normalize() method does not convert a relative path into an absolute path; therefore, the path value after the first line is just the current directory symbol." \[OCP - page 571\]
     * Yeah, about that : `Paths.get("").equals(Paths.get(".").normalize())` returns true, but not without normalize !
     * And `Paths.get(".").getName(0)` returns a path that equals Paths.get(".")
+    
+
+#### JDBC
+
+* Inside the JDK, inside java.sql/java.sql package, only interfaces : Driver, Connection, Statement, ResultSet. Implementations of those provided by vendor-specific "driver JAR".
+* "There are two main ways to get a Connection: DriverManager or DataSource. \[...\] Do not use a DriverManager in code someone is paying you to write." \[OCP - page 515\]
