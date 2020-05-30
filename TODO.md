@@ -61,4 +61,11 @@ System.out.println(Files.deleteIfExists(path) ? "Success": "Try Again");
 
 * "int id = (Integer) idField;" \[OCP - page 528\]. could e have cast directly to (int) ?? (I guess not) 
 
-* ResultSet    
+* ResultSet
+
+* "The unnamed module exports all of its packages. This enables flexible migration, as we shall see below. It does not, however, mean that code in a named module can access types in the unnamed module." (https://openjdk.java.net/projects/jigsaw/spec/sotms/#compatibility--migration)    
+    So to whom are accessible types of the unnamed module ??
+    
+* jdeps : how to use?
+
+* "Java has long supported services via the java.util.ServiceLoader class, which locates service providers at run time by searching the class path." (https://openjdk.java.net/projects/jigsaw/spec/sotms/#compatibility--migration)   
