@@ -77,9 +77,15 @@ Either respect the contract, or don't override equals in a meaningful way.
 * Actually, String class itself is final and so all of its methods are implicitly final.
 
 
+#### Access modifier
+
+* Top-level types can only be public or package-private. No protected or private on those...
+
+
 #### Generics
 
-* TODO `<? super String>` - does it match a super _interface_?
-* TODO `Predicate<? super String> predicate = s -> s.startsWith("g");` // COMPILES ? If yes as what?
+* TODO `<? super String>` - does it match a super _interface_? (i'd say : for sure...)
+* TODO `Predicate<? super String> predicate = s -> s.startsWith("g");` // COMPILES ? 
+      -----> Generics are a compile-time tool only right? so at runtime s->... just becomes another instance of Predicate.
 
 
