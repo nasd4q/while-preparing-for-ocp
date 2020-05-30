@@ -58,3 +58,6 @@ System.out.println(Files.deleteIfExists(path) ? "Success": "Try Again");
 
 * "DriverManager knows that a JAR is a driver because it contains a file called java.sql.Driver in the directory META-INF/services" \[OCP - page 516 \]  
     ---> What it that META-INF/ directory ??? 
+
+* "int id = (Integer) idField;" \[OCP - page 528\]. could e have cast directly to (int) ?? (I guess not) 
+    
