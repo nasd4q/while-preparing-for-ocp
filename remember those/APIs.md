@@ -67,7 +67,9 @@
 * "The normalize() method does not convert a relative path into an absolute path; therefore, the path value after the first line is just the current directory symbol." \[OCP - page 571\]
     * Yeah, about that : `Paths.get("").equals(Paths.get(".").normalize())` returns true, but not without normalize !
     * And `Paths.get(".").getName(0)` returns a path that equals Paths.get(".")
-    
+* Files.move(), Files.copy() : 
+    * By default, both fails if target already exists, except if it is same file as source in which case nothing happens.
+    * StandardCopyOptions.REPLACE_EXISTING     
 
 #### JDBC
 
