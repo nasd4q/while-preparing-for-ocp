@@ -48,6 +48,8 @@
 * "The performance gain from using a Buffered class to access a low-level file stream cannot be overstated. Unless you are doing something very specialized in your application, you should always wrap a file stream with a Buffered class in practice." \[OCP - page 415\]
 * Talking about `new File(oneStringArg)`, "Option C is also correct because Java will convert the slashes to the right one when working with paths" \[OCP - page 566\]
 * Talking about calling `mark(int)` and `reset()`  on an instance of a [`java.io.InputStream`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/InputStream.html) (abstract class !) "Not all java.io streams support the mark() operation; therefore, without calling markSupported() on the stream, the result is unknown until runtime." \[OCP - page 568\]
+* FileInputStream : 3 constructors : Accepting respectively one String, one File and one FileDescriptor.
+
 
 #### Java 6's `java.io.Console` retrieved by invoking  `System.console()` ([Oracle doc](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Console.html))
 
@@ -69,7 +71,9 @@
     * And `Paths.get(".").getName(0)` returns a path that equals Paths.get(".")
 * Files.move(), Files.copy() : 
     * By default, both fails if target already exists, except if it is same file as source in which case nothing happens.
-    * StandardCopyOptions.REPLACE_EXISTING     
+    * StandardCopyOption.REPLACE_EXISTING overrides this behaviour (works also with "move()" method !)
+    * When source is symbolic link : move() moves the symbolic link itself, while copy() copies the target of symbolic link
+    * With directories : copy() creates an empty directory at target location. move() : complicated - in certain cases it will succeed     
 
 #### JDBC
 

@@ -62,7 +62,7 @@ Here is what JLS says on this:
 * In Java 7, "try with resources" statement was introduced, which does not require catch or finally blocks. (Else at least one of those is required. (TODO - check this)) 
 * catch and finally blocks are executed after the resources are closed.
 * "Any object that implements java.lang.AutoCloseable, which includes all objects which implement java.io.Closeable, can be used as a resource."
-
+* It is possible to put some already declared final or effectively final variable (of a type implementing Autocloseable) along with other resource definitions (inside the parenthesis following "try"). 
 
 #### Lambdas, double-colon operator
 
