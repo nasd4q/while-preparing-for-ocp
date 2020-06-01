@@ -74,7 +74,7 @@ public class TestClass {
                 = people.stream().collect(
                 groupingBy(Person::getCity,
                         reducing(BinaryOperator.maxBy(byHeight))));
-                        
+
          */
     }
 }
