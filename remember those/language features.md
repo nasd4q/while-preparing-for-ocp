@@ -87,5 +87,5 @@ Either respect the contract, or don't override equals in a meaningful way.
 * TODO `<? super String>` - does it match a super _interface_? (i'd say : for sure...)
 * TODO `Predicate<? super String> predicate = s -> s.startsWith("g");` // COMPILES ? 
       -----> Generics are a compile-time tool only right? so at runtime s->... just becomes another instance of Predicate.
-
+* "var data = new ArrayList<>(); is same as var data = new ArrayList<Object>(); Therefore, data is a list of Objects." (Enthuware)
 

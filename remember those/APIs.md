@@ -49,6 +49,7 @@
 * Talking about `new File(oneStringArg)`, "Option C is also correct because Java will convert the slashes to the right one when working with paths" \[OCP - page 566\]
 * Talking about calling `mark(int)` and `reset()`  on an instance of a [`java.io.InputStream`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/InputStream.html) (abstract class !) "Not all java.io streams support the mark() operation; therefore, without calling markSupported() on the stream, the result is unknown until runtime." \[OCP - page 568\]
 * FileInputStream : 3 constructors : Accepting respectively one String, one File and one FileDescriptor.
+* "When you create a FileOutputStream without specifying the append mode (which can be true or false), it overwrites the existing file" (Enthuware)
 
 
 #### Java 6's `java.io.Console` retrieved by invoking  `System.console()` ([Oracle doc](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Console.html))
