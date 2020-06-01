@@ -15,3 +15,5 @@
 ### 2nd Test
 
 * PrintWriter ? vs what ? what benefits ?  - study and practice
+* study commit when using JDBC
+* review executors, executor, executorservice etc
