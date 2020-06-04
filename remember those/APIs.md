@@ -25,7 +25,7 @@
 * The Map interface uses put() rather than add() !
 * `Arrays.asList(nullValuedArg);` throws a `java.lang.NullPointerException`.
 * "A NavigableSet is a SortedSet extended with navigation methods reporting closest matches for given search targets." (Enthuware)
-
+* "HashMap supports adding null key as well as null values but ConcurrentHashMap does not. Inserting null key or null in a ConcurrentHashMap will throw a NullPointerException." (Enthuware)
 
 #### `java.lang.Iterable<T>`
 
