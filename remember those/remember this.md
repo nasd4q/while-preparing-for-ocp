@@ -63,6 +63,8 @@ Here is what JLS says on this:
 * catch and finally blocks are executed after the resources are closed.
 * "Any object that implements java.lang.AutoCloseable, which includes all objects which implement java.io.Closeable, can be used as a resource."
 * It is possible to put some already declared final or effectively final variable (of a type implementing Autocloseable) along with other resource definitions (inside the parenthesis following "try"). 
+* "The auto-closeable variables defined in the try-with-resources statement are implicitly final. Thus, they cannot be reassigned." (Enthuware - TODO check this)
+
 
 #### Lambdas, double-colon operator
 
