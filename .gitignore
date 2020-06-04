@@ -1,3 +1,6 @@
 lib/
 out/
 screenshots/
+zoo/
+playground/
+derby.log
