@@ -5,7 +5,7 @@
 
 package com.abc.reporting;
 
-import com.abc.accounts.BasicAccount;
+import accounting2.com.abc.accounts.BasicAccount;
 
 public class Reporter {
     public static void main(String[] args) {
