@@ -75,6 +75,8 @@
     * StandardCopyOption.REPLACE_EXISTING overrides this behaviour (works also with "move()" method !)
     * When source is symbolic link : move() moves the symbolic link itself, while copy() copies the target of symbolic link
     * With directories : copy() creates an empty directory at target location. move() : complicated - in certain cases it will succeed     
+* "Remember that java.io.IOException is a superclass of all exceptions under java.nio.file package." (Enthuware)
+
 
 #### JDBC
 

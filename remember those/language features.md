@@ -45,7 +45,7 @@ Either respect the contract, or don't override equals in a meaningful way.
 * It will be bound to `probe(Integer i)`, then `probe(int i)`, then `probe(long i)`, then `probe(int... iA)`.
 * `probe(anInt)` is never bound to `probe(Long l)` neither. 
 * It is bound to `probe(int i)`, then `probe(long l)`, then `probe(Integer i)`, `probe(int... iA)`.
-
+* "Note that, no autoboxing occurs in System.out.println(2); because the println(int ) method is invoked in this case." (Enthuware)
 
 #### Enums
 
