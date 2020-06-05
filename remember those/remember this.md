@@ -5,10 +5,13 @@
 * `One o = null;` won't initialize class One and won't cause class One static blocks to be executed.
 * `Two t = new Two();` will cause Class Two (and superclass and so on) to be initialized (after superclass).
 * `System.out;println(Sub.ID);`, where ID is a static field on a superclass of Sub, isn't sufficient to cause initialization of Sub class. (It should cause initialization of the class declaring the referenced static field ID though.)
+* "When a programmer does not define ANY constructor, the compiler inserts one automatically, the access modifier of which is same as that of the class." (Enthuware 1Z0-816 - Exam 4 Q28)
 
 "First, static statements/blocks are called IN THE ORDER they are defined. 
 Next, instance initializer statements/blocks are called IN THE ORDER they are defined. 
 Finally, the constructor is called."
+
+
 
 
 #### Operator precedence and order of execution
