@@ -58,7 +58,7 @@
 * method `Console format​(String fmt, Object... args)` "Writes a formatted string to this console's output stream using the specified format string and arguments."
 * method `Console printf​(String format, Object... args)` "A convenience method to write a formatted string to this console's output stream using the specified format string and arguments."
 * ... but no "print" or "println" methods ! (Use `PrintWriter writer()`	which "retrieves the unique PrintWriter object associated with this console".)
-
+* "None of the calls to Console throw any checked exception. Call to System.console() doesn't throw any exception either. It just returns null if Console is not available." (Enthuware exam II.5/18)
 
 #### NIO.2
 
