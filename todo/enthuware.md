@@ -4,7 +4,7 @@
 
 * non static inner class may have static members? (I say yes they can)
 
-* assertions : enabled or not on "class by class" basis ? i guess not
+* assertions : _enabled1 or not on "class by class" basis ? i guess not
 
 * review and practice java.util.concurrent.ConcurrentMap
 
